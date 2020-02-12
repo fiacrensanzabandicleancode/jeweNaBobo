@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { UserInformationComponent } from './component/user-information/user-information.component';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { UserInformationComponent } from './component/user-information/user-info
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
