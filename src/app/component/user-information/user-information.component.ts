@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInformationComponent implements OnInit {
 
+  // inject the service. get the user using the Id. And print users info.
   constructor() { }
 
   ngOnInit() {

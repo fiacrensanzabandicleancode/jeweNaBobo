@@ -1,12 +1,15 @@
 <div class="loginForm mx-auto">
-    <form #form="ngForm">
-        <div class="input-group mb-3">
-            <input type="text" name="name" class="form-control" placeholder="Izina" aria-label="Izina"
-                aria-describedby="basic-addon1" [(ngModel)]="user.name">
+    <form #form="ngForm" ngNativeValidate novalidate="novalidate">
+        <div [hidden]="isNameAndPasswordValid" class="alert alert-danger">
+            Mwihenze mw'izina canke mu giharuro kabanga
         </div>
         <div class="input-group mb-3">
-            <input type="password" name="passWord" class="form-control" placeholder="Igiharuro kabanga" aria-label="Igiharuro kabanga"
-                aria-describedby="basic-addon1" [(ngModel)]="user.passWord">
+            <input type="text" name="name" class="form-control" placeholder="Izina" aria-label="Izina"
+                aria-describedby="basic-addon1" [(ngModel)]="user.name" required #nameField="ngModel">
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="password" class="form-control" placeholder="Igiharuro kabanga" aria-label="Igiharuro kabanga"
+                aria-describedby="basic-addon1" [(ngModel)]="user.password" required #passwordField="ngModel">
         </div>
         <div class="input-group mb-3 mx-auto buttonLoginForm">
             <button (click)="goToUserInformation()" class="btn btn-primary">Fyonda</button>

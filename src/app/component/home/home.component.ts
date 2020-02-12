@@ -11,10 +11,11 @@ export class HomeComponent implements OnInit {
 
   user: User = {
     name: '',
-    passWord: ''
+    password: ''
   }
 
-  validUsers = ['Butoyi', 'Nadia', 'Rehema'];
+  validUsers = ['Butoyi', 'Nadia', 'Rehema']
+  isNameAndPasswordValid = true
 
   constructor(private router: Router) { }
 
@@ -23,14 +24,16 @@ export class HomeComponent implements OnInit {
 
   goToUserInformation() {
     if (this.isUserValid(this.user)) {
+      // TODO: go to userInfo with the Id.
       this.router.navigate(['userInformation'])
     }
   }
 
   isUserValid(user: User): boolean {
-    if (this.validUsers.includes(user.name) && user.passWord === '123') {
+    if (this.validUsers.includes(user.name) && user.password === '123') {
       return true
     } else {
+      this.isNameAndPasswordValid = false
       return false
     }
   }
