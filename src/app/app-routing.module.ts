@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'userInformation',
+    path: 'userInformation/:name',
     component: UserInformationComponent
   },
   {

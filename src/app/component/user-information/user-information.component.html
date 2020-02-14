@@ -1,21 +1,21 @@
 <div>
     <h1 class="text-center">
-        Jewe na Butoyi
+        Jewe na {{ user.name }}
     </h1>
 
     <table class="table table-dark listWidth mx-auto">
         <tbody>
             <tr>
                 <th scope="row">Ingurane</th>
-                <td>2000000</td>
+                <td>{{ user.debt }}</td>
             </tr>
             <tr>
-                <th scope="row">Inyungu nzosubiza</th>
-                <td>0</td>
+                <th scope="row">Inyungu izosubizwa</th>
+                <td>{{ user.interest }}</td>
             </tr>
             <tr>
                 <th scope="row">Ayasubijwe</th>
-                <td>30000</td>
+                <td>{{ user.payedDebtAmount }}</td>
             </tr>
         </tbody>
     </table>
@@ -34,20 +34,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">10000</th>
-                <td>12/02/2020</td>
+            <tr *ngFor="let payedDebt of user.payedDebtHistory">
+                <th scope="row">{{ payedDebt.amount }}</th>
+                <td>{{ payedDebt.paymentDate | date:'dd/MM/yyyy' }}</td>
             </tr>
-            <tr>
-                <th scope="row">10000</th>
-                <td>12/03/2020</td>
-
-            </tr>
-            <tr>
-                <th scope="row">10000</th>
-                <td>12/04/2020</td>
-            </tr>
-        </tbody>
     </table>
 
 </div>

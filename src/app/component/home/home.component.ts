@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,30 +12,26 @@ export class HomeComponent implements OnInit {
 
   user: User = {
     name: '',
-    password: ''
+    password: '',
+    debt: null,
+    interest: null,
+    payedDebtAmount: null,
+    payedDebtHistory: null
   }
 
   validUsers = ['Butoyi', 'Nadia', 'Rehema']
   isNameAndPasswordValid = true
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
 
   goToUserInformation() {
-    if (this.isUserValid(this.user)) {
-      // TODO: go to userInfo with the Id.
-      this.router.navigate(['userInformation'])
-    }
-  }
-
-  isUserValid(user: User): boolean {
-    if (this.validUsers.includes(user.name) && user.password === '123') {
-      return true
+    if (this.userService.verifyIfUserExists(this.user)) {
+      this.router.navigate(['userInformation', this.user.name])
     } else {
       this.isNameAndPasswordValid = false
-      return false
     }
   }
 

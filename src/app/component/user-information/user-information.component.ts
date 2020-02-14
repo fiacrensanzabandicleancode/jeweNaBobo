@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-user-information',
@@ -7,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInformationComponent implements OnInit {
 
-  // inject the service. get the user using the Id. And print users info.
-  constructor() { }
+  constructor( private activatedRoute: ActivatedRoute, private userService: UserService ) { }
 
+  userName = ""
+  user = null
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => { 
+      this.userName = params.get('name')
+      console.log(this.userName)
+      this.user = this.userService.getUserByName(this.userName)
+      console.log(this.user)
+  });
   }
+
+
 
 }
