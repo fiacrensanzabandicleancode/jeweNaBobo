@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
 
   goToUserInformation() {
     if (this.userService.verifyIfUserExists(this.user)) {
+      // TODO: Send a token instead of a userName. 
+      // This token is used to get informations from the back system
       this.router.navigate(['userInformation', this.user.name])
     } else {
       this.isNameAndPasswordValid = false
