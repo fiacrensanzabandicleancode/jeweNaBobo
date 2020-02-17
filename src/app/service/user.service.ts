@@ -14,6 +14,31 @@ export class UserService {
   // Sinon voir s'il y a moyen dans un autre serveur
   users: User[] = [
     {
+      "name": 'test',
+      "password": "123",
+      "debt": 200000,
+      "interest": 0,
+      "payedDebtAmount": 30000,
+      "payedDebtHistory":
+        [
+          {
+            "userName": 'Butoyi',
+            "amount": 10000,
+            "paymentDate": new Date("2020-02-14")
+          },
+          {
+            "userName": 'test',
+            "amount": 10000,
+            "paymentDate": new Date("2020-03-14")
+          },
+          {
+            "userName": 'test',
+            "amount": 10000,
+            "paymentDate": new Date("2020-04-14")
+          }
+        ]
+    },
+    {
       "name": 'Butoyi',
       "password": "123",
       "debt": 200000,

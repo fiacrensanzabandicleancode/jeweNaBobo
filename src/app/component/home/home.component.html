@@ -1,8 +1,8 @@
+<div [hidden]="isNameAndPasswordValid" class="alert alert-danger">
+    Mwihenze mw'izina canke mu giharuro kabanga
+</div>
 <div class="loginForm mx-auto">
     <form #form="ngForm" ngNativeValidate novalidate="novalidate">
-        <div [hidden]="isNameAndPasswordValid" class="alert alert-danger">
-            Mwihenze mw'izina canke mu giharuro kabanga
-        </div>
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control" placeholder="Izina" aria-label="Izina"
                 aria-describedby="basic-addon1" [(ngModel)]="user.name" required #nameField="ngModel">
