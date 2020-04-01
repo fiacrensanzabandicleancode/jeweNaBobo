@@ -15,12 +15,13 @@ export class HomeComponent implements OnInit {
     password: '',
     debt: null,
     interest: null,
-    payedDebtAmount: null,
+    payedDebtsAmount: null,
     payedDebtHistory: null
   }
 
-  validUsers = ['Butoyi', 'Nadia', 'Rehema']
   isNameAndPasswordValid = true
+
+  userExists = false
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -28,11 +29,19 @@ export class HomeComponent implements OnInit {
   }
 
   goToUserInformation() {
-    if (this.userService.verifyIfUserExists(this.user)) {
+    console.log("Typed user: ", this.user)
+    this.userService.verifyIfUserExists(this.user).subscribe({
+      next: result => this.userExists = result,
+      error: error => console.log("Error: ", error)
+    })
+    
+    if (this.userExists) {
       // TODO: Send a token instead of a userName. 
       // This token is used to get informations from the back system
+      console.log("User exists")
       this.router.navigate(['userInformation', this.user.name])
     } else {
+      console.log("User doesn't exist")
       this.isNameAndPasswordValid = false
     }
   }

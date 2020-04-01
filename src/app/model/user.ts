@@ -6,7 +6,7 @@ export class User {
     password: string
     debt: number
     interest: number
-    payedDebtAmount: number
+    payedDebtsAmount: number
     payedDebtHistory: PayedDebt[]
 
     constructor() {
