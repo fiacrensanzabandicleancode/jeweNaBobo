@@ -31,19 +31,20 @@ export class HomeComponent implements OnInit {
   goToUserInformation() {
     console.log("Typed user: ", this.user)
     this.userService.verifyIfUserExists(this.user).subscribe({
-      next: result => this.userExists = result,
+      next: result => {
+        this.userExists = result
+        if (this.userExists) {
+          // TODO: Send a token instead of a userName. 
+          // This token is used to get informations from the back system
+          console.log("User exists")
+          this.router.navigate(['userInformation', this.user.name])
+        } else {
+          console.log("User doesn't exist")
+          this.isNameAndPasswordValid = false
+        }
+      },
       error: error => console.log("Error: ", error)
     })
-    
-    if (this.userExists) {
-      // TODO: Send a token instead of a userName. 
-      // This token is used to get informations from the back system
-      console.log("User exists")
-      this.router.navigate(['userInformation', this.user.name])
-    } else {
-      console.log("User doesn't exist")
-      this.isNameAndPasswordValid = false
-    }
   }
 
 }
