@@ -8,7 +8,7 @@ import { HomeComponent } from './component/home/home.component';
 import { UserInformationComponent } from './component/user-information/user-information.component';
 
 
- 
+
 @NgModule({
   declarations: [
     AppComponent,

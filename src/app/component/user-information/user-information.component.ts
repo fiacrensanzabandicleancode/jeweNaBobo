@@ -13,28 +13,26 @@ export class UserInformationComponent implements OnInit {
   constructor( private activatedRoute: ActivatedRoute, private userService: UserService ) { }
 
   user: User = {
-    "name": '',
-    "password": "",
-    "debt": null,
-    "interest": null,
-    "payedDebtsAmount": null,
-    "payedDebtHistory": null
-  }
+    name: '',
+    password: '',
+    debt: null,
+    interest: null,
+    payedDebtsAmount: null,
+    payedDebtHistory: null
+  };
 
-  userName = ""
-  
+  userName = '';
+
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params => { 
-      this.userName = params.get('name')
-      this.user.name = this.userName
-      console.log("Attempt to connect: ", this.user)
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.userName = params.get('name');
+      this.user.name = this.userName;
+      console.log('Attempt to connect: ', this.user);
       this.userService.getUserByName(this.user).subscribe({
         next: result => this.user = result,
-        error: error => console.log("Error: ", error)
-      })
+        error: error => console.log('Error: ', error)
+      });
   });
   }
-
-
 
 }
