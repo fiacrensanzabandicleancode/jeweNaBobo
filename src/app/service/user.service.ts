@@ -10,6 +10,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class UserService {
 
+  url = 'http://35.190.195.194:8080/jewenabobo-0.0.1-SNAPSHOT';
+
   user: User = {
     name: '',
     password: '',
@@ -24,7 +26,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   getUserByName(logedUser: User): Observable<User> {
-    return this.httpClient.post<User>('http://localhost:8080/getUserByName', logedUser, this.options).pipe(
+    return this.httpClient.post<User>(this.url + '/getUserByName', logedUser, this.options).pipe(
       tap(data => console.log('Sent data from DB: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
@@ -36,7 +38,7 @@ export class UserService {
   }
 
   verifyIfUserExists(typedUser: User): Observable<boolean> {
-    return this.httpClient.post<boolean>('http://localhost:8080/verifyIfUserExists', typedUser, this.options).pipe(
+    return this.httpClient.post<boolean>(this.url + '/verifyIfUserExists', typedUser, this.options).pipe(
       tap(data => console.log('Sent data from DB: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
