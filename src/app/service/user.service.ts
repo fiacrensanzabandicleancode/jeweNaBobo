@@ -10,7 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  url = 'http://35.190.195.194:8080/jewenabobo-0.0.1-SNAPSHOT';
+  url = 'https://35.195.105.182:8443/jewenabobo-0.0.1-SNAPSHOT';
 
   user: User = {
     name: '',
