@@ -52,4 +52,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  closeNameAndPasswordValidAlert() {
+    this.isNameAndPasswordValid = true;
+  }
+
+  closeIsServerErrorAlert() {
+    this.isServerError = true;
+  }
 }

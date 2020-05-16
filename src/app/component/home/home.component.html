@@ -1,9 +1,15 @@
-<div [hidden]="isNameAndPasswordValid" class="alert alert-danger">
+<div [hidden]="isNameAndPasswordValid" class="alert alert-danger alert-dismissible fade show" role="alert">
     Mwihenze mw'izina canke mu giharuro kabanga
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeNameAndPasswordValidAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
 </div>
-<div [hidden]="isServerError" class="alert alert-danger">
+<div [hidden]="isServerError" class="alert alert-danger alert-dismissible fade show" role="alert">
   Hari ingorane yahabaye. Bangira, murasubira hanyuma. <br>
   The server is not available. Please, Try again later.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeIsServerErrorAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 <div class="loginForm mx-auto">
     <form #form="ngForm" ngNativeValidate novalidate="novalidate">
