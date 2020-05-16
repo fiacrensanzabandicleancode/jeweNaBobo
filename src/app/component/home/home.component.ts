@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   isNameAndPasswordValid = true;
 
+  isServerError = true;
+
   userExists = false;
 
   constructor(private router: Router, private userService: UserService) { }
@@ -43,7 +45,10 @@ export class HomeComponent implements OnInit {
           this.isNameAndPasswordValid = false;
         }
       },
-      error: error => console.log('Error: ', error)
+      error: error => {
+        this.isServerError = false;
+        console.log('Error: ', error);
+      }
     });
   }
 

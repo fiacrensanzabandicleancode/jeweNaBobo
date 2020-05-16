@@ -1,6 +1,10 @@
 <div [hidden]="isNameAndPasswordValid" class="alert alert-danger">
     Mwihenze mw'izina canke mu giharuro kabanga
 </div>
+<div [hidden]="isServerError" class="alert alert-danger">
+  Hari ingorane yahabaye. Bangira, murasubira hanyuma. <br>
+  The server is not available. Please, Try again later.
+</div>
 <div class="loginForm mx-auto">
     <form #form="ngForm" ngNativeValidate novalidate="novalidate">
         <div class="input-group mb-3">
